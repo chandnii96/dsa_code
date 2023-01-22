@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+// Function to rearrange the array
+int rearrangeArray(int array[], int length, int k)
+{
+    int countK = 0, window = 0, maxWindow = 0;
+
+    for (int i = 0; i < length; i++) {
+
+        if (array[i] <= k) {
+            countK++;
+            window++;
+        }
+        else {
+            if (window > maxWindow) {
+                maxWindow = window;
+            }
+            window = 0;
+        }
+    }
+
+    return countK - maxWindow;
+}
+
+// Main function
+int main()
+{
+    int array[100], N, k;
+    
+    cout << " ";
+    cin >> N;
+
+    cout << " ";
+    cin >> k;
+
+    for (int i = 0; i < N; i++) {
+        cout << " ";
+        cin >> array[i];
+    }
+
+    
+    cout << rearrangeArray(array, N, k);
+    
+    return 0;
+}
